@@ -1,5 +1,5 @@
 CC = gcc
-1111
+
 default: all
 
 all: servermake clientmake
