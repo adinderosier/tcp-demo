@@ -2,17 +2,13 @@
 #include <assert.h>
 #include "ship.h"
 
-struct Ship {
-	int size;
-	int orientation;
-};
-
-struct Ship* create_ship(int len, int orient) {
-	Ship *ship = calloc(sizeof(struct Ship), 1);
+struct Ship* create_ship(int size, int orientation, int player) {
+	struct Ship *ship = calloc(1, sizeof(struct Ship));
 	assert(ship != NULL);
 
-	ship->size = len;
-	ship->orientation = orient;
+	ship->size = size;
+	ship->orientation = orientation;
+	ship->player = player;
 	return ship;
 }
 
@@ -26,4 +22,8 @@ int get_size(struct Ship *ship) {
 
 int get_orientation(struct Ship *ship) {
 	return ship->orientation;
+}
+
+int get_player(struct Ship *ship) {
+	return ship->player;
 }
